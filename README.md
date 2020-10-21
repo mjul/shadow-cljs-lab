@@ -10,6 +10,7 @@ run the the application from a terminal in the container:
 
 ```
     npm install
+    npm run copy
     shadow-cljs watch app
 ```
 
