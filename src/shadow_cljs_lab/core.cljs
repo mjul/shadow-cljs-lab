@@ -1,31 +1,34 @@
 (ns shadow-cljs-lab.core
+;; There is also an Ant Design component called empty:
+  (:refer-clojure :exclude [empty])  
   (:require [reagent.core :as reagent :refer [atom]]
-            [shadow-cljs-lab.ant :as ant]))
+            [syn-antd.layout :refer [layout layout-sider layout-header layout-content layout-footer]]
+            [syn-antd.menu :refer [menu menu-item menu-sub-menu]]
+            [syn-antd.empty :refer [empty]]))
 
 ;; define your app data so that it doesn't get over-written on reload
-
 (defonce app-state (atom {:text "Hello world!"}))
 
 
 (defn hello-world []
-  [ant/layout
-   [ant/layout-sider 
+  [layout
+   [layout-sider 
     [:div {:class "logo"} "Lab!"]
-    [ant/menu {:mode :inline :theme :dark}
-     [ant/menu-item {:key 1} "Home"]
-     [ant/menu-sub-menu {:key 2 :title "Documents"}
-      [ant/menu-item {:key 21} "Foo.docx"]
-      [ant/menu-item {:key 22} "Bar.docx"]]]]
-   [ant/layout
-    [ant/layout-header {:style {:background :yellow}}
+    [menu {:mode :inline :theme :dark}
+     [menu-item {:key 1} "Home"]
+     [menu-sub-menu {:key 2 :title "Documents"}
+      [menu-item {:key 21} "Foo.docx"]
+      [menu-item {:key 22} "Bar.docx"]]]]
+   [layout
+    [layout-header {:style {:background :yellow}}
      "Submarine"]
-    [ant/layout-content
+    [layout-content
      [:div
       [:h1 (:text @app-state)]
       [:h2 "Edit and watch it change!"]
-      [ant/empty]
+      [empty]
       [:div "Done"]]]
-    [ant/layout-footer {:style {:background :white :color :grey}}
+    [layout-footer {:style {:background :white :color :grey}}
      "This is the footer"]
     ]]
   )
