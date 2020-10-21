@@ -8,3 +8,5 @@ package-lock.json
 # Build output
 public/js/compiled/
 
+# VS Code extensions
+.calva/
