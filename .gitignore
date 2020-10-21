@@ -1,0 +1,10 @@
+# NPM dependencies
+node_modules/
+package-lock.json
+
+# Shadow CLJS
+.shadow-cljs/
+
+# Build output
+public/js/compiled/
+
