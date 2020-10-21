@@ -4,9 +4,12 @@
     "watch": "shadow-cljs watch app;",
     "release": "shadow-cljs release app;",
     "server": "shadow-cljs server;",
-    "clean": "rm -rf target; rm -rf public/js/compiled"
+    "clean": "rm -rf target; rm -rf public/js/compiled",
+    "copy:antd-css": "cp node_modules/antd/dist/antd.css public/css",
+    "copy": "npm run copy:antd-css"
   },
   "dependencies": {
+    "antd": "^4.7.2",
     "create-react-class": "^15.7.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
