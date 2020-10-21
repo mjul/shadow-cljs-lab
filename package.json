@@ -9,6 +9,7 @@
     "copy": "npm run copy:antd-css"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "antd": "^4.7.2",
     "create-react-class": "^15.7.0",
     "react": "^16.14.0",
