@@ -16,6 +16,9 @@ It shows:
 The project is set up so that VSCode can use Remote Containers ("Dev Container") to run 
 Shadow CLJS and the node server inside a Docker container.
 
+Note how `.devcontainer\devcontainer.json` mounts the `.shadow-cljs` and `node_modules` 
+directories on a file system insde the container to speed up the build dramatically.
+
 Once the Docker container with the environment is running, install the NPM packages and 
 run the the application from a terminal in the container:
 
@@ -32,7 +35,7 @@ It has "hot reloading" and will update when you change the source.
 The app also provides continuous testing in the browser, just run the tests:
 
 ```
-shadow-cljs watch test
+    shadow-cljs watch test
 ```
 
 You can now open http://localhost:8021 to see the test results.
