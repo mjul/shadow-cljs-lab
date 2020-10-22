@@ -23,11 +23,15 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// Open Shadow CLJS web app, the nREPL, and the web socked used for Hot Reloading
 	// Open for the brower-based tests 
-	"forwardPorts": [8700, 8777, 9630, 8021]
+	"forwardPorts": [8700, 8777, 9630, 8021],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
-
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "node"
+	// Keep the frequently-used dirs node_modules and .shadow-cljs in a file-system inside the 
+	// container to improves performance dramatically compared to them residing on the host OS (at least for Windows).
+	// See https://code.visualstudio.com/docs/remote/containers-advanced
+	"mounts": [
+		"source=shadow-cljs-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+		"source=shadow-cljs-dotshadow-cljs,target=${containerWorkspaceFolder}/.shadow-cljs,type=volume"
+	],
+	// Give ownership to the non-root user running the code
+	"postCreateCommand": "sudo chown node node_modules .shadow-cljs"
 }
