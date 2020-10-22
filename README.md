@@ -18,3 +18,17 @@ run the the application from a terminal in the container:
 Now browse to http://localhost:8700 to see the app.
 It has "hot reloading" and will update when you change the source.
 
+
+The app also provides continuous testing in the browser, just run the tests:
+
+```
+shadow-cljs watch test
+```
+
+You can now open http://localhost:8021 to see the test results.
+It conveniently provides a red/green icon in the browser tab while you are working, 
+so you can see the status without opening the tab.
+
+
+
+

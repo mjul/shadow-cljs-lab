@@ -1,6 +1,6 @@
 ;; shadow-cljs configuration
 {:source-paths
- ["src"]
+ ["src" "test"]
 
  :dependencies [[binaryage/devtools "0.9.7"]
                 [reagent "0.8.0-alpha2"]
@@ -26,5 +26,10 @@
          ;; serve the public directory over http at port 8700
          :http-root    "public"
          :http-port    8700
-         :preloads     [devtools.preload]}
-        }}}
+         :preloads     [devtools.preload]}}
+  
+  :test {:target    :browser-test
+         :test-dir  "public/js/test"
+         :devtools  {:http-port          8021
+                     :http-root          "public/js/test"}}}
+  }

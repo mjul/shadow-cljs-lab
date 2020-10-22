@@ -21,8 +21,9 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// Open Shadow CLJS web app, the nREPL, and the web socked used for Hot Reloading:
-	"forwardPorts": [8700, 8777, 9630]
+	// Open Shadow CLJS web app, the nREPL, and the web socked used for Hot Reloading
+	// Open for the brower-based tests 
+	"forwardPorts": [8700, 8777, 9630, 8021]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
