@@ -11,6 +11,7 @@
             [syn-antd.card :refer [card]]
             ["@ant-design/charts/es/line" :default adch-line]
             ["@ant-design/charts/es/liquid" :default adch-liquid]
+            ["@ant-design/charts/es/progress" :default adch-progress]
             ))
 
 ;; define your app data so that it doesn't get over-written on reload
@@ -18,7 +19,7 @@
 
 (def line (reagent.core/adapt-react-class adch-line))
 (def liquid (reagent.core/adapt-react-class adch-liquid))
-
+(def progress (reagent.core/adapt-react-class adch-progress))
 
 (defn line-chart-example []
   [card {:title "Amazing line chart" :bordered true :type :inner}
@@ -43,8 +44,12 @@
 
 (defn liquid-chart-example []
   [card {:title "Wonderful liquid chart" :bordered true :type :inner}
-   [liquid {:percent 0.42 :height 100 :width 100}]])
+   [liquid {:percent 0.42 :height 100 :width 100 :auto-fit true}]])
 
+(defn progress-chart-example []
+  [card {:title "Make progress great again" :bordered true :type :inner}
+   [progress {:height 100 :width 100 :auto-fit true :percent 0.7}]]
+  )
 
 (defn hello-world []
   [layout
@@ -66,15 +71,16 @@
       [syn-antd.empty/empty]
       [:h3  "Ant Charts"]
       [card
-       [row {:span 24}
-        [col {:span 12}
+       [row {:span 24 :gutter 16}
+        [col {:span 8}
          [line-chart-example]]
-        [col {:span 12}
-         [liquid-chart-example]]]]
+        [col {:span 8}
+         [liquid-chart-example]]
+        [col {:span 8}
+         [progress-chart-example]]]]
       [:div "Done"]]]
     [layout-footer {:style {:background :white :color :grey}}
-     "This is the footer"]
-    ]]
+     "This is the footer"]]]
   )
 
 (defn start []
