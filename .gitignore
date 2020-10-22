@@ -11,3 +11,4 @@ public/js/test/
 
 # VS Code extensions
 .calva/
+.clj-kondo/.cache

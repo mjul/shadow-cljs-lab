@@ -1,0 +1,1 @@
+{:linters {:unused-referred-var {:exclude {cljs.test [deftest testing is are run-tests]}}}}
