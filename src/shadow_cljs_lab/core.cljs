@@ -21,7 +21,7 @@
 
 
 (defn line-chart-example []
-  [card {:title "Amazing line chart" :bordered true}
+  [card {:title "Amazing line chart" :bordered true :type :inner}
    [line {:data [{:year 1991 :value 3}
                  {:year 1992 :value 4}
                  {:year 1993 :value 3.5}
@@ -31,8 +31,9 @@
                  {:year 1997 :value 7}
                  {:year 1998 :value 9}
                  {:year 1999 :value 13}]
-          :width 300 :height 300
-          :autoFit false
+          :width 100 
+          :height 100
+          :auto-fit true
           :x-field :year
           :y-field :value
           :point {:size 5
@@ -41,8 +42,8 @@
    ])
 
 (defn liquid-chart-example []
-  [card {:title "Wonderful liquid chart" :bordered true}
-   [liquid {:percent 0.42 :width 300 :height 300}]])
+  [card {:title "Wonderful liquid chart" :bordered true :type :inner}
+   [liquid {:percent 0.42 :height 100 :width 100}]])
 
 
 (defn hello-world []
@@ -64,11 +65,12 @@
       [:h3 "Ant D components with graphics"]
       [syn-antd.empty/empty]
       [:h3  "Ant Charts"]
-      [row {:span 24}
-       [col {:span 12}
-        [line-chart-example]]
-       [col {:span 12}
-        [liquid-chart-example]]]
+      [card
+       [row {:span 24}
+        [col {:span 12}
+         [line-chart-example]]
+        [col {:span 12}
+         [liquid-chart-example]]]]
       [:div "Done"]]]
     [layout-footer {:style {:background :white :color :grey}}
      "This is the footer"]
