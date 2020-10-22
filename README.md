@@ -1,4 +1,4 @@
-# Shadow CLJS with Ant Design
+# Shadow CLJS ClojureScript with Ant Design and Ant Design Charts in VS Code Dev Container
 
 Taking Shadow CLJS for a spin, a fresh take on web apps with the (React-based) 
 Ant Design components and Clojurescript.
@@ -9,8 +9,11 @@ It shows:
 - ClojureScript
 - Re-frame / Reagent
 - Continuous testing in the browser
-- Ant Design components
-- Ant Design Charts
+- Ant Design components (via the syn-antd wrapper from Clojars)
+- Ant Design Charts (directly using React components from NPM)
+
+It also shows:
+- VS Code Dev Container with Calva and clj-kondo extensions
 
 
 The project is set up so that VSCode can use Remote Containers ("Dev Container") to run 
