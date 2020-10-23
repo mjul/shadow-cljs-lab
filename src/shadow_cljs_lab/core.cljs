@@ -1,5 +1,6 @@
 (ns shadow-cljs-lab.core
   (:require [reagent.core :as reagent :refer [atom]]
+            [reagent.dom]
             [syn-antd.layout :refer [layout layout-sider layout-header layout-content layout-footer]]
             [syn-antd.menu :refer [menu menu-item menu-sub-menu]]
             [syn-antd.empty]
@@ -57,7 +58,7 @@
     [:div {:class "logo"} "Lab!"]
     [menu {:mode :inline :theme :dark}
      [menu-item {:key 1} "Home"]
-     [menu-sub-menu {:key 2 :title (reagent/as-component [:span [folder-outlined] "Documents"])}
+     [menu-sub-menu {:key 2 :title (reagent/as-element [:span [folder-outlined] "Documents"])}
       [menu-item {:key 21} [file-word-outlined] "Foo.docx"]
       [menu-item {:key 22} [file-pdf-outlined] "Bar.pdf"]]]]
    [layout
@@ -84,8 +85,8 @@
   )
 
 (defn start []
-  (reagent/render-component [hello-world]
-                            (. js/document (getElementById "app"))))
+  (reagent.dom/render [hello-world]
+                      (. js/document (getElementById "app"))))
 
 (defn ^:export init []
   ;; init is called ONCE when the page loads
