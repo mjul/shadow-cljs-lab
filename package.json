@@ -12,6 +12,7 @@
     "@ant-design/charts": "^1.0.1",
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.7.2",
+    "bizcharts": "^4.0.14",
     "create-react-class": "^15.7.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
